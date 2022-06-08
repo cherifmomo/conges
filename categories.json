@@ -1,0 +1,20 @@
+{
+    "_id" : ObjectId("629d0b47b0002652702d776e"),
+    "name" : "Congé d'été",
+    "id" : 1,
+    "updatedAt" : ISODate("2022-06-05T21:36:00.482Z")
+}
+
+{
+    "_id" : ObjectId("629d0b62b0002652702d777e"),
+    "name" : "Congé maternité",
+    "id" : 2,
+    "updatedAt" : ISODate("2022-06-05T21:35:36.727Z")
+}
+
+{
+    "_id" : ObjectId("629d0b78b0002652702d7784"),
+    "name" : " Conge parental",
+    "id" : "3",
+    "updatedAt" : ISODate("2022-06-05T21:35:29.489Z")
+}
