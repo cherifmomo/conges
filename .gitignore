@@ -1,0 +1,17 @@
+gestion/node_modules/
+gestion/node/
+node_modules/
+node/
+gestion/node_modules
+gestion/node
+*/**/node_modules
+**/node_modules
+**/.angular/cache
+*.log
+**.log
+**/.log
+**/.vscode
+gestion/.angular/cache/*
+gestion/.angular/cache/
+gestion/.angular/cache
+**/.angular/cache/
