@@ -1,0 +1,176 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.content {
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.text-center {
+  text-align: center
+}
+
+.text-right {
+  text-align: right
+}
+
+.text-left {
+  text-align: left
+}
+
+h1{
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+h3 {
+  font-size: 22px !important;
+  color: #333;
+  margin: 20px 15px !important;
+  font-weight: 700 !important;
+}
+
+.mat-elevation-z8 {
+  width: 100%;
+}
+
+.submit-form {
+  max-width: 400px;
+  margin: auto;
+}
+
+.submit-form input,
+.submit-form select,
+.submit-form option {
+  padding: 0.75em 0 0.75em 0.75em;
+  background-color: #EEEEEE;
+  border: 0;
+  border-bottom: 1px solid #333;
+  display: block;
+  width: 100%;
+}
+
+.submit-form button {
+  margin-top: 15px;
+}
+
+.submit-form label {
+  font-size: 15px;
+  color: #111;
+  margin-top: 15px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.group-date {
+  position: relative
+}
+
+.group-date .mat-datepicker-toggle {
+  position: absolute;
+  right: -10px;
+  bottom: 0;
+}
+
+.btn-success {
+  background-color: #2196f3;
+  border: 1px solid #2196f3;
+  color: #fff;
+}
+
+.btn-info {
+  background-color: #28a745;
+  border: 1px solid #28a745;
+  color: #fff;
+}
+
+.btn-red {
+  background-color: #3f51b5;
+  border: 1px solid #3f51b5;
+  color: #fff;
+}
+
+.mr-15 {
+  margin-right: 15px;
+}
+
+.ml-15 {
+  margin-left: 15px !important
+}
+
+.btn {
+  border-radius: 2px;
+  transition-duration: .3s;
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  background-image: none;
+  border: 0;
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 14%), 0 3px 4px 0 rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+  display: inline-block;
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+  max-width: 100%;
+  min-width: 5.5rem;
+  padding: 0.6875rem 1rem;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.search {
+  width: 100%;
+}
+
+.message-feedback {
+  padding: 15px 0;
+  color: #28a745;
+  font-weight: 700;
+}
+
+.message-error {
+  text-align: center;
+  padding: 15px;
+  color: red;
+  font-weight: 700;
+}
+
+.row-flex {
+  display: flex;
+}
+
+.row-flex .col {
+  flex: 50%;
+}
+
+.icon-delete,
+.icon-delete svg {
+  color: red;
+  display: inline-block;
+}
+
+.icon-edit,
+.icon-edit svg {
+  color: #3f51b5;
+  display: inline-block;
+}

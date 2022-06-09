@@ -1,0 +1,62 @@
+<div layout-fill ng-app="myapp"  ng-cloak>
+  <div layout="row" layout-wrap layout-fill layout-align="center center" class="layout-max-width">
+
+    <h1 class="text-center">Leave management for employees</h1>
+    <div class="row-flex">
+      <div class="col">
+        <button mat-raised-button routerLink="/nouveau" class="btn button btn-red">
+          Add new
+        </button>
+      </div>
+      <div class="col">
+        <mat-form-field class="search">
+          <input matInput (keyup)="setApplyFilter($event)" placeholder="Search" autocomplete="off">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let element;"> {{element.firstname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="start">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> leave Start </th>
+        <td mat-cell *matCellDef="let element"> {{element.start | date: 'dd-MM-yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="end">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> leave End </th>
+        <td mat-cell *matCellDef="let element"> {{element.end | date: 'dd-MM-yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.category}}</td>
+      </ng-container>
+
+      <!-- Get Details -->
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Details </th>
+        <td mat-cell *matCellDef="let element">
+          <app-edit [viewMode]="true" [currentEmployee]="element">Edit</app-edit>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

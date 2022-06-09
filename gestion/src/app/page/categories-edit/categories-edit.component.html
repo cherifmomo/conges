@@ -1,0 +1,40 @@
+<div *ngIf="viewMode; else editable">
+
+  <div *ngIf="currentCategory.id">
+    <a class="badge badge-warning" routerLink="/categories/{{ currentCategory.id }}">
+      <mat-icon class="icon-edit">edit</mat-icon>
+    </a>
+    <a class="badge badge-warning" (click)="deleteCategory()">
+      <mat-icon class="icon-delete">delete</mat-icon>
+    </a>
+  </div>
+</div>
+
+<ng-template #editable>
+
+  <h3 class="text-center">Edit Category</h3>
+  <div *ngIf="currentCategory.id" class="edit-form">
+    <form class="submit-form">
+      <div class="form-group">
+        <label for="firstname">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="currentCategory.name" name="name" required />
+      </div>
+
+
+      <p class="message-feedback">{{ message }}</p>
+      <button type="submit" class="btn btn-success mb-2" (click)="updateCategories()">
+        Update
+      </button>
+
+      <button *ngIf="message" type="submit" class="btn btn-info ml-15" [routerLink]="['/categories']">
+        Categories List
+      </button>
+
+    </form>
+    <div class="message-error" *ngIf="!currentCategory.id">
+      <br />
+      <p>Cannot access this Emplyee...</p>
+    </div>
+  </div>
+
+</ng-template>

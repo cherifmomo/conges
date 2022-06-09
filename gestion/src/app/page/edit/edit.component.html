@@ -1,0 +1,82 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentEmployee.id">
+    <a class="badge badge-warning" routerLink="/employee/{{ currentEmployee.id }}">
+     <mat-icon class="icon-edit">edit</mat-icon>
+    </a>
+    <a class="badge badge-warning" (click)="deleteEmployee()">
+    <mat-icon class="icon-delete">delete</mat-icon>
+    </a>
+  </div>
+</div>
+
+<ng-template #editable>
+
+  <h3 class="text-center">Edit Employee</h3>
+  <div *ngIf="currentEmployee.id" class="edit-form">
+    <form class="submit-form">
+      <div class="form-group">
+        <label for="firstname">firstname</label>
+        <input type="text" class="form-control" id="firstname" [(ngModel)]="currentEmployee.firstname" name="firstname" required />
+      </div>
+      <div class="form-group">
+        <label for="lastname">lastname</label>
+        <input type="text" class="form-control" id="lastname" [(ngModel)]="currentEmployee.lastname" name="lastname" required />
+      </div>
+      <div class="form-group">
+        <label for="start">start</label>
+        <div class="group-date">
+          <input type="text" matInput class="form-control" id="start" [(ngModel)]="currentEmployee.start" name="start" [matDatepicker]="start" (click)="start.open()" />
+          <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+          <mat-datepicker #start></mat-datepicker>
+        </div>
+        {{currentEmployee.start}}
+      </div>
+      <div class="form-group">
+        <label for="end">end</label>
+        <div class="group-date">
+          <input type="text" matInput class="form-control" id="end" [(ngModel)]="currentEmployee.end" name="end" [matDatepicker]="end" (click)="end.open()" />
+          <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+          <mat-datepicker #end></mat-datepicker>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="status">status</label>
+
+        <select matNativeControl required class="form-control" id="status" [(ngModel)]="currentEmployee.status" name="status">
+          <option [selected]="currentEmployee.status === 'demande'" value="demande">Demandé</option>
+          <option [selected]="currentEmployee.status === 'refuse'" value="refuse">Refusé</option>
+          <option [selected]="currentEmployee.status === 'approuve'" value="approuve">Approuvé</option>
+          <option [selected]="currentEmployee.status === 'annule'" value="annule">Annulé</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="category">category</label>
+        <!-- <input type="text" class="form-control" id="category" [(ngModel)]="currentEmployee.category" name="category" /> -->
+
+        <select matNativeControl id="category" class="form-control" [ngModel]="currentEmployee.category"  (ngModelChange)="onChangeCategory($event)"  name="category"  >
+          <option *ngFor="let cat of categories" id="{{cat.name}}" [value]="cat.name">{{ cat.name }}</option>
+        </select>
+      </div>
+
+
+
+      <p class="message-feedback">{{ message }}</p>
+      <button type="submit" class="btn btn-success mb-2" (click)="updateEmployee()">
+        Update
+      </button>
+
+      <button *ngIf="message" type="submit" class="btn btn-info ml-15" [routerLink]="['/accueil']">
+        Employee List
+      </button>
+
+    </form>
+    <div class="message-error" *ngIf="!currentEmployee.id">
+      <br />
+      <p>Cannot access this Emplyee...</p>
+    </div>
+  </div>
+
+</ng-template>
