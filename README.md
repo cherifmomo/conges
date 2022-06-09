@@ -17,4 +17,8 @@ The problem solving cors :
     - The file - proxy.conf.json in Angular
     - Access-Control-Allow-Origin header in Express Js
 
+Start the Express JS server: node server.js 
+Start the angular server: ng serve --open
+
+
 
