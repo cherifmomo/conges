@@ -8,13 +8,13 @@ module.exports = app => {
     router.post("/", employee.create);
     // Retrieve all employee
     router.get("/", employee.findAll);
-    // Retrieve a single Tutorial with id
+    // Retrieve a single l with id
     router.get("/:id", employee.findOne);
-    // Update a Tutorial with id
+    // Update a l with id
     router.put("/:id", employee.update);
-    // Delete a Tutorial with id
+    // Delete a l with id
     router.delete("/:id", employee.delete);
-    // Create a new Tutorial
+    // Create a new l
     router.delete("/", employee.deleteAll);
     app.use('/api/employee', router);
   };
